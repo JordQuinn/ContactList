@@ -1,0 +1,35 @@
+body{
+font-size:20pt;
+letter-spacing:1px;
+font-family: Helvetica, Arial, sans-serif;
+word-spacing: 5px;
+letter-spacing:-1px;
+color: #515151;
+}
+.container li {
+  list-style: none;
+  text-transform: capitalize;
+}
+
+.container img{
+  border-radius: 50%;
+}
+
+.App{
+  margin: 50px;
+  width: 500px;
+  text-align: left;
+}
+
+.appdiv{
+  background-color: rgb(122, 128, 188);
+  color: white;
+  width: 400px;
+  height: 75px;
+  font-weight: lighter;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom:25px;
+}
+.App h1{
+}
