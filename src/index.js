@@ -8,8 +8,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 ReactDOM.render(
   <MuiThemeProvider>
-  <Provider store= {store}>
-    <App />
-  </Provider>
-</MuiThemeProvider>
+    <Provider store= {store}>
+      <App />
+    </Provider>
+  </MuiThemeProvider>
   , document.getElementById('root'));registerServiceWorker();

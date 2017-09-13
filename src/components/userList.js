@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {getUsers} from '../actions/userActions'
 import {selectUser} from '../actions/selectUser'
+import data from '../reducers/data'
+import userReducer from './reducers/userreducer'
 
 
 
@@ -11,9 +13,9 @@ class UserList extends Component{
     getUsers()
   }
 
-//handleClick (e) = {
-//this.props.selectUser(user)
-//}
+handleClick (e) {
+  selectUser(user)
+}
 
   render(){
     console.log(this.props)
@@ -22,10 +24,7 @@ class UserList extends Component{
         <ul>
           {this.props.users.map(user => {
             return(
-              <li key ={user.id}
-                //I need to do a handler instead of a function here
-                //onClick = {this.handleClick}
-              onClick = {() => this.props.selectUser(user)}>
+              <li key ={user.id} onClick = {handleClick}>
                 <img src={user.picture.thumbnail} alt = 'peeps'/>
                {user.name.first} {user.name.last}</li>
               );

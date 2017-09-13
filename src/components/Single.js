@@ -71,7 +71,7 @@ static defaultProps = {
 }
 
 function stateToProps(appState, ownprops){
-  return {...appState.person, ...ownprops}
+  return {...appState.user, ...ownprops}
 }
 
 export default connect(stateToProps)(Single)
