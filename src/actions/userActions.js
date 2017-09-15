@@ -8,3 +8,12 @@ export function getUsers() {
     users:data
   })
 }
+
+export const selectUser = (id) => {
+  const state = store.getState()
+  const user = state.users.users.find(user => user.id == id)
+  store.dispatch({
+    type:'USER_SELECTED',
+    payload: user
+  })
+};

@@ -1,52 +1,38 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import data from './reducers/data'
+import {selectUser} from '../actions/userActions'
 
 
 class Single extends Component {
 
 static defaultProps = {
-    name:{
-      first:'',
-      last: ''
-    },
-    locale:{
-      city:'',
-      state:''
-    },
-    picture:{
-      large:'',
-      medium:'',
-      thumbnail:''
-    },
+    name:{first:'', last: ''},
+    locale:{city:'', state:''},
+    picture:{large:'', medium:'', thumbnail:''},
     email:''
 }
 
   componentDidMount(){
-    single(this.props.match.params.id)
+    selectUser(this.props.match.params.id)
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return(
       <div className="wrapper">
         <div className="photo">
-          <div className="button">
-            <NavLink activeClassName="active" to="/App">
+           <div className="arrow">
+            <NavLink activeClassName="active" to="/">
               <i className="fa fa-arrow-left" aria-hidden="true"/>
             </NavLink>
-          </div>
-          <img src={this.props.picture.large} />
-        </div>
-        <div className="fname">
+           </div>
+           <img className = 'singleimg' src={this.props.picture.large} alt='portrait' />
+        </div><br></br>
+        <div className = 'details'>
+        <div className= "name">
         <i className="fa fa-user-circle" aria-hidden="true"></i>
-          <div className="first">
-            {this.props.name.first}
-          </div>
-          <div className="last">
-            {this.props.name.last}
-          </div>
+            {this.props.name.first} {this.props.name.last}<br></br>
         </div>
         <div className="email">
           <i className="fa fa-envelope" aria-hidden="true"></i>
@@ -54,24 +40,21 @@ static defaultProps = {
         </div>
         <div className="mobile">
         <i className="fa fa-mobile" aria-hidden="true"></i>
-          {this.props.cell}
+          &nbsp; {this.props.cell}
         </div>
         <div className="location">
         <i className="fa fa-globe" aria-hidden="true"></i>
-          <div className="city">
-          {this.props.locale.city},
+        {this.props.location.city}, {this.props.location.state}
         </div>
-        <div className="state">
-          {this.props.locale.state}
-        </div>
-        </div>
+      </div>
       </div>
     )
   }
 }
 
-function stateToProps(appState, ownprops){
-  return {...appState.user, ...ownprops}
+function stateToProps(appState){
+  // console.log('appState', appState)
+  return {...appState.users.currentUser}
 }
 
 export default connect(stateToProps)(Single)

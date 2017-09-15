@@ -1,21 +1,15 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getUsers} from '../actions/userActions'
-import {selectUser} from '../actions/selectUser'
-import data from '../reducers/data'
-import userReducer from './reducers/userreducer'
-
+import {selectUser} from '../actions/userActions'
+import {withRouter} from 'react-router-dom'
 
 
 class UserList extends Component{
 
-  componentWillMount() {
-    getUsers()
-  }
-
-handleClick (e) {
-  selectUser(user)
-}
+handleClick = (id) => {
+  selectUser(id)
+  this.props.history.push('/Single/'+ id)
+ }
 
   render(){
     console.log(this.props)
@@ -24,7 +18,8 @@ handleClick (e) {
         <ul>
           {this.props.users.map(user => {
             return(
-              <li key ={user.id} onClick = {handleClick}>
+
+              <li key ={user.id} onClick = {() => this.handleClick(user.id)}>
                 <img src={user.picture.thumbnail} alt = 'peeps'/>
                {user.name.first} {user.name.last}</li>
               );
@@ -41,10 +36,8 @@ function mapStateToProps(state){
   }
 }
 
-function matchDispatchToProps(dispatch){
-  return connect({selectUser: selectUser}, dispatch)
-}
+// function matchDispatchToProps(dispatch){
+//   return connect({selectUser: selectUser}, dispatch)
+// }
 
-
-
-export default connect(mapStateToProps, matchDispatchToProps)(UserList);
+export default connect(mapStateToProps)(withRouter(UserList));

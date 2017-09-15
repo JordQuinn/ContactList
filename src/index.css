@@ -9,20 +9,24 @@ color: #515151;
 .container li {
   list-style: none;
   text-transform: capitalize;
+  border-bottom: 1px solid #ccc;
+
 }
 
 .container img{
   border-radius: 50%;
+  width: 80px;
 }
 
 .App{
   margin: 50px;
   width: 500px;
   text-align: left;
+  padding-left: 100px;
 }
 
 .appdiv{
-  background-color: rgb(122, 128, 188);
+  background-color: rgb(140, 197,95);
   color: white;
   width: 400px;
   height: 75px;
@@ -31,5 +35,60 @@ color: #515151;
   padding-top: 5px;
   padding-bottom:25px;
 }
-.App h1{
+
+.fa {
+  padding-right: 10px;
+  color: black;
+}
+
+.fa fa-arrow-left {
+  padding: 10px;
+}
+.singleimg{
+  border-radius: 50%;
+  width: 300px;
+  padding: 40px;
+
+}
+
+.photo{
+  background:rgb(140, 197,95);
+
+}
+
+.wrapper{
+width: 60%;
+margin: 0 auto;
+padding: 3em 0;
+font-family: georgia, serif;
+font-size: 30px;
+text-align: center;
+text-transform: capitalize;
+color: black;
+}
+
+.arrow {
+  position: absolute;
+  padding-left: 25px;
+}
+ .mobile{
+    border-bottom: 1px solid #ccc;
+    margin: 10px;
+}
+
+.email {
+    border-bottom: 1px solid #ccc;
+    margin: 10px;
+}
+.name{
+    border-bottom: 1px solid #ccc;
+    margin: 10px;
+}
+
+.details{
+text-align: left;
+list-style: none;
+margin: 0 auto;
+width: 75%;
+background-color: white;
 }
